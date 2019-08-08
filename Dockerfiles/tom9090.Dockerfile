@@ -1,0 +1,3 @@
+FROM tomcat
+MAINTAINER lokesh
+EXPOSE 9090

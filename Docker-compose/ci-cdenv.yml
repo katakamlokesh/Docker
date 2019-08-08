@@ -1,0 +1,21 @@
+---
+ version: '3'
+
+ services: 
+  devserver: 
+   image: jenkins
+   ports: 
+    - 5050:8080
+  qaserver: 
+   image: tomcat
+   ports: 
+    - 6060:8080
+   links: 
+    - devserver:jenkins
+  prodserver: 
+   image: tomcat
+   ports: 
+    - 7070:8080
+   links: 
+    - devserver:jenkins
+...

@@ -1,0 +1,20 @@
+---
+ version: '3'
+
+ services: 
+  myphp: 
+   image: php:7.1-apache
+  apache: 
+   image: tomcat
+   ports: 
+    - 8899:8080
+   links: 
+    - myphp:php
+  mydb: 
+   image: mysql:5
+   environment: 
+    MYSQL_ROOT_PASSWORD: katakam@007
+   links: 
+    - myphp:php
+    - apache:tomcat
+...
